@@ -1,0 +1,143 @@
+.header {
+	min-height: rem(120);
+	@include adaptiveValue("padding-top", 28, 15);
+	@include adaptiveValue("padding-bottom", 28, 15);
+	// .header__container
+	&__container {
+		display: flex;
+		align-items: center;
+	}
+	// .header__logo
+	&__logo {
+		width: rem(74);
+		height: rem(74);
+	}
+	// .header__menu
+	&__menu {
+	}
+	// .header__buttons
+	&__buttons {
+		display: flex;
+		gap: rem(20);
+	}
+}
+.menu {
+	flex: 1 1 auto;
+	display: flex;
+	justify-content: space-around;
+	// .menu__body
+	&__body {
+	}
+	// .menu__list
+	&__list {
+		display: flex;
+		column-gap: rem(60);
+	}
+	// .menu__item
+	&__item {
+		display: flex;
+		align-items: center;
+		column-gap: rem(7);
+	}
+	// .menu__link
+	&__link {
+		font-weight: 700;
+		font-size: rem(16);
+		line-height: 1.6;
+	}
+	// .menu__arrow
+	&__arrow {
+		width: rem(13);
+		height: rem(13);
+		border-radius: 50%;
+		border: rem(1) solid rgba(0, 0, 0, 0.5);
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		font-size: rem(9);
+		padding: rem(7);
+	}
+	// .menu__sub-list
+	&__sub-list {
+	}
+	// .menu__sub-item
+	&__sub-item {
+	}
+	// .menu__sub-link
+	&__sub-link {
+		font-weight: 500;
+		font-size: rem(14);
+		line-height: 1.6;
+	}
+	// .menu__icon
+	&__icon {
+	}
+}
+
+.button-header {
+	&__btn {
+		background: $mainColor;
+		color: #fff;
+		box-shadow: 3px 3px 0px rgba(0, 0, 0, 0.25);
+		font-weight: 700;
+		font-size: rem(14);
+		line-height: math.div(17, 14);
+		border-radius: rem(8);
+		padding: rem(12) rem(24);
+	}
+	&__btn--border {
+		background: inherit;
+		color: inherit;
+		border: rem(2) solid $mainColor;
+		box-shadow: none;
+	}
+}
+
+//Burger
+.icon-menu {
+	display: none;
+	@media (max-width: $mobile) {
+		display: block;
+		position: relative;
+		width: rem(30);
+		height: rem(18);
+		cursor: pointer;
+		z-index: 5;
+		span,
+		&::before,
+		&::after {
+			content: "";
+			transition: all 0.3s ease 0s;
+			right: 0;
+			position: absolute;
+			width: 100%;
+			height: rem(2);
+			background-color: #000;
+		}
+		&::before {
+			top: 0;
+		}
+		&::after {
+			bottom: 0;
+		}
+		span {
+			top: calc(50% - rem(1));
+		}
+		.menu-open & {
+			span {
+				width: 0;
+			}
+			&::before,
+			&::after {
+			}
+			&::before {
+				top: calc(50% - rem(1));
+				transform: rotate(-45deg);
+			}
+			&::after {
+				bottom: calc(50% - rem(1));
+				transform: rotate(45deg);
+			}
+		}
+	}
+}
