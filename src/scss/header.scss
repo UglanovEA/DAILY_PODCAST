@@ -59,6 +59,24 @@
 	}
 	// .menu__sub-list
 	&__sub-list {
+		position: relative;
+		flex: 1 1 100%;
+		padding: rem(15);
+		@media (min-width: $mobile) {
+			min-width: rem(200);
+			position: absolute;
+			top: 100%;
+			left: 0;
+			opacity: 0;
+			visibility: hidden;
+			pointer-events: none;
+			transition: all 0.3s ease 0s;
+			transform: translate(0, rem(10));
+			z-index: 5;
+		}
+		@media (max-width: $mobile) {
+			margin: rem(10) rem(-15) rem(0) rem(-15);
+		}
 	}
 	// .menu__sub-item
 	&__sub-item {
